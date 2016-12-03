@@ -1,5 +1,8 @@
 # _tpl is a template system in JavaScript
 
+## Demo
+https://frentsel.github.io/_tpl/
+
 ## Download
 **CDN:** https://cdn.rawgit.com/frentsel/_tpl/master/tpl.min.js
 
