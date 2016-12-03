@@ -14,20 +14,24 @@
 </head>
 <body>
 <div id="main">
-  <h1>_tpl - is a html template syster in javascript</h1>
+  <h1>TPL - is a html template syster in javascript</h1>
   <div class="wrapper">
     <b>CDN:</b>
     <p><a href="https://cdn.rawgit.com/frentsel/_tpl/master/tpl.min.js">https://cdn.rawgit.com/frentsel/_tpl/master/tpl.min.js</a></p>
   <br>
     <b>Example:</b>
     <pre>
-      <code class="html" id="code"><p id="text">User name: {user.firstName}, age: {user.age}, mother: {user.parent.mother.firstName}</p></code>
+      <code class="html" id="code"><p id="text">
+    User name: <b>{user.firstName}</b><br>,
+    age: <span>{user.age}</span><br>,
+    mother: <small>{user.parent.mother.firstName}</small>
+</p></code>
     </pre>
     <b>Result:</b>
     <pre>
       <code class="html code" id="result"></code>
     </pre>
-    <b>Code:</b>
+    <b>Javascript code:</b>
     <pre>
       <code class="javascript code" id="example">
 var data = {
@@ -44,8 +48,12 @@ var data = {
 
 var el = document.getElementById('text');
 var html = el.innerHTML;
-
 el.innerHTML = tpl(html, data);
+
+// or jQuery variant
+var $text = $('#text');
+var html = tpl($text.html(), data);
+$text.html(html);
       </code>
     </pre>
   </div>
