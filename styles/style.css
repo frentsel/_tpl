@@ -68,3 +68,7 @@ a.pluso-more {
 	float: right;
 	margin-right: 30px;
 }
+
+iframe {
+	display: none;
+}
