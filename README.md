@@ -1,4 +1,4 @@
-# TPL is a template system in JavaScript
+# TPL is an template system in JavaScript
 ![preview](/img/introduce.png)
 
 ## Demo
