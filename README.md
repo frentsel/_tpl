@@ -1,4 +1,5 @@
 # _tpl is a template system in JavaScript
+![preview](/img/introduce.png)
 
 ## Demo
 https://frentsel.github.io/_tpl/

@@ -4,80 +4,88 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
   <title>html template system</title>
+  <link rel="stylesheet" href="styles/monokai-sublime.css">
+  <link rel="stylesheet" href="styles/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
   <script src="tpl.js"></script>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: monospace;
-      color: #676767;
-    }
-    #main {
-      margin: 0 auto;
-      width: 600px;
-      text-align: center;
-    }
-    #main > div {
-      width: 50%;
-      float: left;
-      margin-bottom: 40px;
-    }
-    h1 {
-      font-weight: bold;
-      font-size: 30px;
-      margin: 20px 0 30px;
-      color: coral;
-    }
-    p {
-      line-height: 30px;
-      font-size: 16px;
-    }
-    span {
-      color: coral;
-    }
-    hr {
-      margin-bottom: 10px;
-    }
-  </style>
 </head>
 <body>
 <div id="main">
   <h1>_tpl - is a html template syster in javascript</h1>
-  <div id="text">
-    <p>User id: <span>{id}</span>,</p>
-    <p>name: <span>{name.first}</span>,</p>
-    <p>location <span>{loc.street}</span>,</p>
-    <p>Res: <span>{loc.prop1.end}</span>,</p>
-    <p>Devil: <span>{loc.prop1.too.deep}</span>.</p>
+  <div class="wrapper">
+    <b>CDN:</b>
+    <p><a href="https://cdn.rawgit.com/frentsel/_tpl/master/tpl.min.js">https://cdn.rawgit.com/frentsel/_tpl/master/tpl.min.js</a></p>
+  <br>
+    <b>Example:</b>
+    <pre>
+      <code class="html" id="code"><p id="text">User name: {user.firstName}, age: {user.age}, mother: {user.parent.mother.firstName}</p></code>
+    </pre>
+    <b>Result:</b>
+    <pre>
+      <code class="html code" id="result"></code>
+    </pre>
+    <b>Code:</b>
+    <pre>
+      <code class="javascript code" id="example">
+var data = {
+    user:  {
+        firstName: "Alex",
+        age: 27,
+        parent: {
+            mother: {
+                firstName: "Samantha"
+            }
+        }
+    }
+};
+
+var el = document.getElementById('text');
+var html = el.innerHTML;
+
+el.innerHTML = tpl(html, data);
+      </code>
+    </pre>
   </div>
-  <div id="result"></div>
-  <hr>
-  <a href="https://github.com/frentsel/_tpl" target="_blank">github</a>
+    <footer>
+        <a href="https://github.com/frentsel/_tpl" target="_blank">github</a>
+        <script type="text/javascript">(function() {
+            if (window.pluso)if (typeof window.pluso.start == "function") return;
+            if (window.ifpluso==undefined) { window.ifpluso = 1;
+                var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
+                s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
+                s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
+                var h=d[g]('body')[0];
+                h.appendChild(s);
+            }})();</script>
+        <div class="pluso" data-background="transparent" data-options="small,round,line,horizontal,nocounter,theme=02" data-services="facebook,twitter,google,odnoklassniki,vkontakte,moimir"></div>
+    </footer>
 </div>
 <script>
+
+  var $code = $('#code'),
+      $result = $('#result');
+
   var data = {
-    id: 123,
-    name: {
-      first: "Vasya"
-    },
-    loc: {
-      street: "Shekspira",
-      prop1: {
-        end: 'Yahooooooooooo! :)',
-        too: {
-          deep: "!!!"
+    user:  {
+      firstName: "Alex",
+      age: 27,
+      parent: {
+        mother: {
+          firstName: "Samantha"
         }
       }
     }
   };
+  $(document).ready(function() {
 
-  var html = document.getElementById('text').innerHTML;
-  var result = tpl(html, data);
-  document.getElementById('result').innerHTML = result;
+    hljs.initHighlightingOnLoad();
+
+    $code.text($code.html());
+    $result.html(tpl($code.html(), data));
+  });
 </script>
 </body>
 </html>
