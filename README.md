@@ -11,16 +11,12 @@ https://frentsel.github.io/_tpl/
 
 ```javascript
 var data = {
-    id: 123,
-    name: {
-        first: "Vasya"
-    },
-    loc: {
-        street: "Shekspira",
-        prop1: {
-            end: 'Yahooooooooooo! :)',
-            too: {
-                deep: "!!!"
+    user:  {
+        firstName: "Jesica",
+        age: 27,
+        parent: {
+            mother: {
+                firstName: "Samantha"
             }
         }
     }
