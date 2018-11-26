@@ -1,4 +1,4 @@
-# TPL is an template system in JavaScript
+# TPL is a template system in JavaScript
 
 ## Demo
 https://frentsel.github.io/_tpl/
