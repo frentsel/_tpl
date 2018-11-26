@@ -5,11 +5,7 @@ https://frentsel.github.io/_tpl/
 
 ### Example HTML
 ```html
-<p>
-  User: {user.firstName}<br />,
-  age:{user.age}<br />,
-  mother: {user.parent.mother.name}
-</p>
+<p>User: {user.firstName}, age:{user.age}, mother: {user.parent.mother}</p>
 ```
 
 ### Data and JS
@@ -19,9 +15,7 @@ var data = {
     name: "Alex",
     age: 27,
     parent: {
-      mother: {
-        name: "Samantha"
-      }
+      mother: "Samantha"
     }
   }
 };
@@ -30,9 +24,5 @@ var result = tpl(html, data);
 
 ### Result
 ```html
-<p>
-  User: Alex<br>,
-  age: 27<br>,
-  mother: Samantha
-</p>
+<p>User: Alex, age: 27, mother: Samantha</p>
 ```
