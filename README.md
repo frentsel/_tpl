@@ -3,7 +3,7 @@ TPL it's a simple template system in JavaScript with data nesting ability.
 
 ### Example HTML
 ```html
-<p>User: {user.firstName}, age:{user.age}, mother: {user.parent.mother}</p>
+<p>User: {user.name}, age:{user.age}, mother: {user.parent.mother}</p>
 ```
 
 ### Data and JS
