@@ -9,8 +9,8 @@ const tpl = function(str, data) {
       return getValue(data, keys);
     }
     return obj.toString();
-  }
-  return str.replace(/\{([^\}]+)\}/g, (idle, keys) => {
+  };
+  return str.replace(/{([^}]+)}/gim, (idle, keys) => {
     const keysList = keys.split('.');
     return getValue(data, keysList);
   });
