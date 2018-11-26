@@ -1,4 +1,5 @@
-# TPL is a template system in JavaScript
+# TPL
+TPL it's a simple template system in JavaScript with data nesting ability.
 
 ### Example HTML
 ```html
