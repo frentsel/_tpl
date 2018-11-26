@@ -1,24 +1,38 @@
 # TPL is an template system in JavaScript
-![preview](/img/introduce.png)
 
 ## Demo
 https://frentsel.github.io/_tpl/
 
-## Basic Usage
+### Example HTML
+```html
+<p>
+  User: {user.firstName}<br />,
+  age:{user.age}<br />,
+  mother: {user.parent.mother.name}
+</p>
+```
 
+### Data and JS
 ```javascript
 var data = {
-    user:  {
-        firstName: "Jesica",
-        age: 27,
-        parent: {
-            mother: {
-                firstName: "Samantha"
-            }
-        }
+  user: {
+    name: "Alex",
+    age: 27,
+    parent: {
+      mother: {
+        name: "Samantha"
+      }
     }
+  }
 };
-var html = document.getElementById('text').innerHTML;
 var result = tpl(html, data);
-document.getElementById('result').innerHTML = result;
+```
+
+### Result
+```html
+<p>
+  User: Alex<br>,
+  age: 27<br>,
+  mother: Samantha
+</p>
 ```
